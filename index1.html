@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet"></link>
+    <title>Document</title>
+</head>
+<body>
+<div id="app">
+    <header>
+        <input type="search" v-model="product.title">
+        <button @click="filterProducts">Search</button>
+        <div class="cart">
+            <button class="btn-cart" type="button">Корзина</button>
+            <div class="product-cart" @click="isVisibleCart = !isVisibleCart">
+                <div class="products">
+                    <div class="product" v-for="product of products" :key="product.title">
+                        <img :src="product.img" alt="">
+                        <div class="desc">
+                            <p>{{ product.title }}</p>
+                            <p>{{ product.price * product.quantity }}</p>
+                            <p>{{ product.quantity }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+        <main>
+            <div class="products">
+                <div class="product-item" v-for="product of products" :key="product.id_product">
+                    <img :src="imgCatalog" alt="Item">
+                    <div class="description">
+                        <h3>{{ product.product_name }}</h3>
+                        <p>{{ product.price }}£</p><br>{
+                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="main1.js"></script>
+
+</body>
+</html>
